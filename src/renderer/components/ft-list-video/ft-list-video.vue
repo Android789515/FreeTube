@@ -7,6 +7,7 @@
       [appearance]: true,
       watched: addWatchedStyle
     }"
+    @dragstart.prevent
   >
     <div
       v-if="showGrabBar"
