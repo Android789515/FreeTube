@@ -108,6 +108,8 @@
               :key="`${item.videoId}-${item.playlistItemId || index}`"
               class="playlistItem"
               :data="item"
+              :dragged-video="draggedVideo"
+              :is-sort-order-custom="isSortOrderCustom"
               :playlist-id="playlistId"
               :playlist-type="infoSource"
               :playlist-index="playlistInVideoSearchMode ? shownPlaylistItems.findIndex(i => i === item) : index"
@@ -705,8 +707,9 @@ const canMoveVideos = computed(() => {
 /**
  * @param {string} videoId
  * @param {string} playlistItemId
+ * @param {number?} amount
  */
-function moveVideoUp(videoId, playlistItemId) {
+function moveVideoUp(videoId, playlistItemId, amount = 1) {
   const playlistItems_ = playlistItems.value.slice()
 
   const index = playlistItems_.findIndex((video) => {
@@ -718,7 +721,9 @@ function moveVideoUp(videoId, playlistItemId) {
     return
   }
 
-  [playlistItems_[index], playlistItems_[index - 1]] = [playlistItems_[index - 1], playlistItems_[index]]
+  range(0, amount).forEach(() => {
+    [playlistItems_[index], playlistItems_[index - 1]] = [playlistItems_[index - 1], playlistItems_[index]]
+  })
 
   const playlist = {
     playlistName: playlistTitle.value,
@@ -740,8 +745,9 @@ function moveVideoUp(videoId, playlistItemId) {
 /**
  * @param {string} videoId
  * @param {string} playlistItemId
+ * @param {number?} amount
  */
-function moveVideoDown(videoId, playlistItemId) {
+function moveVideoDown(videoId, playlistItemId, amount = 1) {
   const playlistItems_ = playlistItems.value.slice()
 
   const index = playlistItems_.findIndex((video) => {
@@ -753,7 +759,9 @@ function moveVideoDown(videoId, playlistItemId) {
     return
   }
 
-  [playlistItems_[index], playlistItems_[index + 1]] = [playlistItems_[index + 1], playlistItems_[index]]
+  range(0, amount).forEach(() => {
+    [playlistItems_[index], playlistItems_[index + 1]] = [playlistItems_[index + 1], playlistItems_[index]]
+  })
 
   const playlist = {
     playlistName: playlistTitle.value,

@@ -40,6 +40,9 @@
         </template>
       </p>
       <FtListVideo
+        :class="{
+          preventJankyDrag: preventJankyDrag(),
+        }"
         :data="data"
         :playlist-id="playlistId"
         :playlist-type="playlistType"
@@ -76,6 +79,14 @@ const props = defineProps({
   data: {
     type: Object,
     required: true
+  },
+  draggedVideo: {
+    type: Object,
+    default: null,
+  },
+  isSortOrderCustom: {
+    type: Boolean,
+    default: null
   },
   playlistId: {
     type: String,
@@ -181,6 +192,15 @@ if (!props.initialVisibleState) {
     stopWatchingInitialVisibleState()
     stopWatchingInitialVisibleState = null
   })
+}
+
+/**
+ * @returns {boolean} isVideoDragging
+ */
+const preventJankyDrag = () => {
+  const { draggedVideo: { videoId, playlistItemId } } = props
+
+  return videoId && playlistItemId
 }
 
 /**
