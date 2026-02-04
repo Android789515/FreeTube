@@ -19,7 +19,6 @@
     >
       <FtListVideo
         v-if="finalDataType === 'video' || finalDataType === 'shortVideo'"
-        class="preventJankyDrag"
         :appearance="appearance"
         :class="{
           preventJankyDrag,
@@ -91,10 +90,6 @@ const props = defineProps({
   appearance: {
     type: String,
     required: true
-  },
-  preventJankyDrag: {
-    type: Boolean,
-    default: false,
   },
   firstScreen: {
     type: Boolean,
