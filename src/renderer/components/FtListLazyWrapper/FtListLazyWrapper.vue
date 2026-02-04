@@ -19,6 +19,7 @@
     >
       <FtListVideo
         v-if="finalDataType === 'video' || finalDataType === 'shortVideo'"
+        class="preventJankyDrag"
         :appearance="appearance"
         :class="{
           preventJankyDrag,
@@ -90,14 +91,6 @@ const props = defineProps({
   appearance: {
     type: String,
     required: true
-  },
-  isSortOrderCustom: {
-    type: Boolean,
-    default: false,
-  },
-  draggedVideo: {
-    type: Object,
-    default: () => ({ videoId: null, playlistItemId: null }),
   },
   preventJankyDrag: {
     type: Boolean,

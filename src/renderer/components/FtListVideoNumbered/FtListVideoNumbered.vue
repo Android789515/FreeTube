@@ -53,6 +53,7 @@
         :playlist-loop="playlistLoop"
         :playlist-item-id="playlistItemId"
         force-list-type="list"
+        class="preventJankyDrag"
         :appearance="appearance"
         :always-show-add-to-playlist-button="alwaysShowAddToPlaylistButton"
         :quick-bookmark-button-enabled="quickBookmarkButtonEnabled"
