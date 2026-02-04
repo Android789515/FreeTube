@@ -7,7 +7,6 @@
       [appearance]: true,
       watched: addWatchedStyle
     }"
-    @dragstart.prevent
   >
     <div
       v-if="showGrabBar"
@@ -33,6 +32,7 @@
           class="thumbnailImage"
           alt=""
           :style="{filter: blurThumbnailsStyle}"
+          @dragstart.prevent
         >
       </router-link>
       <div

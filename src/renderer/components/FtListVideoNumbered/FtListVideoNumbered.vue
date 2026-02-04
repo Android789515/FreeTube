@@ -1,5 +1,6 @@
 <template>
   <div
+    ref="video"
     v-observe-visibility="visible ? false : {
       callback: onVisibilityChanged
     }"
@@ -231,6 +232,8 @@ function moveVideoUp(videoId, playlistItemId) {
 function moveVideoDown(videoId, playlistItemId) {
   emit('move-video-down', videoId, playlistItemId)
 }
+
+const videoElement = useTemplateRef('video')
 
 function onDragVideo(event) {
   // Only allow dragging via the drag bar
