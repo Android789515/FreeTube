@@ -1,7 +1,6 @@
 <template>
   <div
     v-if="showResult"
-    ref="video"
     v-observe-visibility="visible ? false : {
       callback: onVisibilityChanged
     }"
@@ -21,7 +20,7 @@
         v-if="finalDataType === 'video' || finalDataType === 'shortVideo'"
         :appearance="appearance"
         :class="{
-          preventJankyDrag,
+          preventJankyDrag: isVideoDragging,
         }"
         :data="data"
         :playlist-id="playlistId"

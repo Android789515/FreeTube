@@ -1,6 +1,5 @@
 <template>
   <div
-    ref="video"
     v-observe-visibility="visible ? false : {
       callback: onVisibilityChanged
     }"
@@ -51,7 +50,7 @@
         :playlist-item-id="playlistItemId"
         force-list-type="list"
         :class="{
-          preventJankyDrag,
+          preventJankyDrag: isVideoDragging,
         }"
         :appearance="appearance"
         :always-show-add-to-playlist-button="alwaysShowAddToPlaylistButton"
