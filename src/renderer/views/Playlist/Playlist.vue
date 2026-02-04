@@ -109,6 +109,7 @@
               class="playlistItem"
               :data="item"
               :dragged-video="draggedVideo"
+              :prevent-janky-drag="preventJankyDrag()"
               :is-sort-order-custom="isSortOrderCustom"
               :playlist-id="playlistId"
               :playlist-type="infoSource"
