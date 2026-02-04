@@ -25,6 +25,7 @@
         class="thumbnailLink"
         tabindex="-1"
         :to="watchVideoRouterLink"
+        draggable="false"
         @click="handleWatchPageLinkClick"
       >
         <img
@@ -32,7 +33,6 @@
           class="thumbnailImage"
           alt=""
           :style="{filter: blurThumbnailsStyle}"
-          @dragstart.prevent
         >
       </router-link>
       <div
@@ -134,6 +134,7 @@
       <router-link
         class="title"
         :to="watchVideoRouterLink"
+        draggable="false"
         @click="handleWatchPageLinkClick"
       >
         <h3
@@ -149,6 +150,7 @@
           class="channelName"
           dir="auto"
           :to="`/channel/${channelId}`"
+          draggable="false"
         >
           {{ channelName }}
         </router-link>
