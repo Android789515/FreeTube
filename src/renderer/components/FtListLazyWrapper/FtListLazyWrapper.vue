@@ -1,6 +1,7 @@
 <template>
   <div
     v-if="showResult"
+    ref="video"
     v-observe-visibility="visible ? false : {
       callback: onVisibilityChanged
     }"
@@ -19,6 +20,9 @@
       <FtListVideo
         v-if="finalDataType === 'video' || finalDataType === 'shortVideo'"
         :appearance="appearance"
+        :class="{
+          preventJankyDrag,
+        }"
         :data="data"
         :playlist-id="playlistId"
         :playlist-type="playlistType"
@@ -86,6 +90,18 @@ const props = defineProps({
   appearance: {
     type: String,
     required: true
+  },
+  isSortOrderCustom: {
+    type: Boolean,
+    default: false,
+  },
+  draggedVideo: {
+    type: Object,
+    default: () => ({ videoId: null, playlistItemId: null }),
+  },
+  preventJankyDrag: {
+    type: Boolean,
+    default: false,
   },
   firstScreen: {
     type: Boolean,
