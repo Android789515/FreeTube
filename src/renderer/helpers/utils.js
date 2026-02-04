@@ -1080,5 +1080,5 @@ export function throttle(func, wait) {
  */
 export const range = (from, to, step = 1) => {
   return Array.from(Array(to - from))
-    .map(number => (number + 1) * step)
+    .map((_, number) => (number + 1) * step)
 }
