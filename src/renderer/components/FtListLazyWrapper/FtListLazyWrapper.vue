@@ -16,6 +16,11 @@
     <template
       v-if="visible"
     >
+      <FontAwesomeIcon
+        v-if="isUserPlaylist && mouseEnter"
+        class="grabBar"
+        :icon="['fas', 'fa-bars']"
+      />
       <FtListVideo
         v-if="finalDataType === 'video' || finalDataType === 'shortVideo'"
         :appearance="appearance"
@@ -66,6 +71,8 @@
 
 <script setup>
 import { computed, ref } from 'vue'
+
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 import { handleDragAndDrop } from '../../helpers/dragAndDrop'
 
