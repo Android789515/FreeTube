@@ -34,6 +34,10 @@
   pointer-events: none;
 }
 
+.thumbnailLink:has(.grabBar) {
+  position: relative;
+}
+
 .videoTagLine {
   margin-block-start: 3px;
 }
