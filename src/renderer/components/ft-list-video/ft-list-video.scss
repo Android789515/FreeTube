@@ -26,6 +26,18 @@
   }
 }
 
+.draggable:not(.draggable:only-child):focus .grabBar,
+.draggable:not(.draggable:only-child):hover .grabBar {
+  display: revert;
+}
+
+// If touch screen device, always show grab bar.
+@media (hover: none) {
+  .draggable:not(.draggable:only-child) .grabBar {
+    display: revert;
+  }
+}
+
 .thumbnailImage {
   // Makes img element sized correctly before image loading starts
   aspect-ratio: 16/9 auto;

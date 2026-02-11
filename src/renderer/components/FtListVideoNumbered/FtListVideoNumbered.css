@@ -53,3 +53,7 @@
 .videoIndexIcon {
   font-size: 14px;
 }
+
+.preventJankyDrag {
+  pointer-events: none;
+}
