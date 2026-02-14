@@ -1,6 +1,7 @@
 <template>
   <div
     v-if="showResult"
+    ref="video-grid"
     v-observe-visibility="visible ? false : {
       callback: onVisibilityChanged
     }"
@@ -65,7 +66,8 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, ref, useTemplateRef, onMounted } from 'vue'
+import { enableDragDropTouch } from '@dragdroptouch/drag-drop-touch'
 
 import { handleDragAndDrop } from '../../helpers/dragAndDrop'
 

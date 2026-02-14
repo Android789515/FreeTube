@@ -1,5 +1,6 @@
 <template>
   <div
+    ref="video-list"
     v-observe-visibility="visible ? false : {
       callback: onVisibilityChanged
     }"
