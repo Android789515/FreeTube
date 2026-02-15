@@ -22,7 +22,7 @@
       @dragstart="onDragStart"
     >
       <font-awesome-icon
-        v-if="inUserPlaylist && layout === 'grid'"
+        v-if="showGrabBar"
         class="grabBar"
         :icon="['fas', 'fa-bars']"
       />
